@@ -1,0 +1,158 @@
+:root{
+  --bg1: #071027;
+  --bg2: #081226;
+  --muted: rgba(255,255,255,0.9);
+  --text-dark: #022a28;
+  --header-text: #08304b; /* deep navy that pairs with the gradient */
+  /* accents: purple -> blue (matches reference) */
+  --accent1: #a78bfa; /* soft purple */
+  --accent2: #60a5fa; /* sky blue */
+  --glass: rgba(255,255,255,0.06);
+  --glass-strong: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.12);
+  --text: #ffffff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+hero-text h1{margin:0;font-size:20px;color:var(--header-text);font-weight:700}
+.role{margin:4px 0;color:var(--header-text);opacity:0.95}
+.location{margin:0;color:var(--header-text);font-size:13px;opacity:0.95}
+
+body{
+  margin:0;
+  font-family: 'Poppins', Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
+  /* Dark charcoal background like the reference image */
+  background: #070709; /* fallback */
+  background: -webkit-linear-gradient(to bottom, #0b0b0d, #070709); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #0b0b0d, #070709); /* Modern browsers */
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+  min-height:100vh;
+}
+
+/* subtle textured overlay (wavy / topography-like feel) */
+body::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(255,255,255,0.02), transparent 18%),
+    radial-gradient(circle at 90% 30%, rgba(0,0,0,0.06), transparent 24%),
+    repeating-linear-gradient( -60deg, rgba(255,255,255,0.01) 0, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 60px);
+  mix-blend-mode: overlay;
+  opacity: 0.45;
+}
+
+.frame{
+  max-width:1100px;
+  margin:36px auto;
+  padding:14px;
+  border-radius:30px;
+  border:10px solid #ffffff; /* white rounded frame like reference */
+  box-shadow: 0 30px 80px rgba(2,6,23,0.6);
+  background: transparent;
+}
+
+.container{
+  max-width:940px;
+  margin:0 auto;
+  padding:20px;
+  border-radius:14px;
+  /* darker inner panel so content reads like the reference */
+  background: linear-gradient(180deg, rgba(6,6,8,0.92), rgba(10,10,12,0.96));
+  box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+  border: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(4px) saturate(100%);
+  -webkit-backdrop-filter: blur(4px) saturate(100%);
+  color: var(--text);
+}
+
+.container{
+  max-width:940px;
+  margin:28px auto;
+  padding:20px;
+  border-radius:14px;
+  /* keep translucent glass so the gradient shows through */
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+}
+.hero{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  padding:18px;
+  border-radius:12px;
+  background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+}
+.avatar{
+  width:72px;height:72px;border-radius:16px;
+  background: linear-gradient(135deg,var(--accent1),var(--accent2));
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:#ffffff;
+  font-size:20px;flex:0 0 72px;
+  box-shadow: 0 8px 28px rgba(99,66,255,0.16);
+}
+.hero-text h1{
+  margin:0 0 6px 0;
+  font-size:32px;
+  line-height:1.02;
+  letter-spacing:-0.01em;
+  font-weight:800;
+  /* gradient-fill heading like reference */
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 10px 30px rgba(2,6,23,0.32);
+  -webkit-font-smoothing:antialiased;
+}
+.role{
+  margin:6px 0 0 0;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:0.01em;
+  opacity:0.95;
+  /* use a subtle light color to read on dark panel */
+  color: rgba(255,255,255,0.95);
+}
+.location{
+  margin:2px 0 0 0;
+  font-size:13px;
+  color: rgba(255,255,255,0.82);
+}
+.summary,h2{margin-top:18px}
+.summary h2, .experience h2, .contacts h2, .skills h2 {
+  color: var(--text);
+  font-weight:600;
+  letter-spacing:0.01em;
+}
+.summary p{color:var(--muted);font-size:15px;line-height:1.6}
+.contact-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--text);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.06);font-weight:600;backdrop-filter: blur(4px);}
+.btn svg{opacity:0.95}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+.btn-email{background:linear-gradient(90deg,#f0abfc,var(--accent1));border:1px solid rgba(120,80,220,0.12);color:#081826}
+.btn-call{background:linear-gradient(90deg,#1f2937,#0b2545);border:1px solid rgba(10,20,60,0.18)}
+.btn-linkedin{background:linear-gradient(90deg,var(--accent2),#7c3aed);border:1px solid rgba(60,90,170,0.12)}
+.experience .job{margin-top:10px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));border:1px solid rgba(255,255,255,0.04);backdrop-filter: blur(6px)}
+.meta{color:var(--muted);font-size:13px;margin:6px 0}
+.skills{margin-top:14px}
+.site-footer{margin-top:28px;padding:14px;color:var(--muted);font-size:13px;text-align:center}
+
+/* Mobile first */
+@media (min-width:700px){
+  .hero{padding:28px}
+  .avatar{width:96px;height:96px;font-size:28px;flex:0 0 96px}
+  .hero-text h1{font-size:28px}
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion:reduce){
+  .btn:hover{transform:none}
+}
